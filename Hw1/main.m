@@ -35,11 +35,11 @@ Un_fft_avg = squeeze(sum(abs(Un_fft), [1 2 3]));
 Un_fft_avg = Un_fft_avg / max(Un_fft_avg);
 
 % Plot averaged spectrum
-ks = (2*pi/(2*49))*[0:(n/2-1) -n/2:-1];
+ks = (2*pi/49)*[0:(n/2-1) -n/2:-1];
 ks = fftshift(ks);
 figure(1)
 plot(ks, Un_fft_avg)
-axis([-2, 2, 0.99, 1])
+axis([-4, 4, 0.99, 1])
 xlabel('wavenumber (k)')
 ylabel('|ut|/max(|ut|)')
 title('averaging spectrum')
@@ -60,7 +60,7 @@ Un_fft_filt_avg = Un_fft_filt_avg / max(Un_fft_filt_avg);
 
 figure(2)
 plot(ks, Un_fft_filt_avg)
-axis([-2, 2, 0.99, 1])
+axis([-4, 4, 0.99, 1])
 xlabel('wavenumber (k)')
 ylabel('|ut|/max(|ut|)')
 title('filtered averaging spectrum')
@@ -96,7 +96,7 @@ sz = [n, n, n];
 figure(3)
 plot3(I1, I2, I3, '-.')
 xlabel('x-index'), ylabel('y-index'), zlabel('z-index')
-axis([30, 60, 9, 50, 1, 55])
+axis([35, 55, 9, 45, 5, 55])
 title('path of the submarine')
 
 %% Problem 3
