@@ -43,23 +43,23 @@ end
 % title('Music score of Floyd')
 
 %% Isolate Bass
-filtered_range = [0, 0.6e4];
+filtered_range = [0.3e4, 0.6e4];
 filter = zeros(size(ks));
 [~, id1] = min(abs(ks-filtered_range(1)));
 [~, id2] = min(abs(ks-filtered_range(2)));
 filter(id1:id2) = 1;
 
-% figure(3)
-% Sgt_spec_filter = Sgt_spec .* filter;
-% pcolor(tslide, ks, Sgt_spec_filter.'), 
-% shading interp 
-% set(gca,'Ylim',[0, 3e4],'Fontsize',[14]) 
-% colormap(hot)
-% colorbar
-% caxis([1.0 2.5])
-% xlabel('time (s)')
-% ylabel('wavenumber (k)')
-% title('Music score of Floyd with filtering out overtones')
+figure(3)
+Sgt_spec_filter = Sgt_spec .* filter;
+pcolor(tslide, ks, Sgt_spec_filter.'), 
+shading interp 
+set(gca,'Ylim',[0, 3e4],'Fontsize',[14]) 
+colormap(hot)
+colorbar
+caxis([1.0 2.5])
+xlabel('time (s)')
+ylabel('wavenumber (k)')
+title('Music score of Floyd with filtering out overtones')
 
 %% Obtain Guitar
 filtered_range = [2e4, 3e4];
